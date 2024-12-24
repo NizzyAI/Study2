@@ -32,13 +32,7 @@ class QytetaretController extends Controller
         if ($validated->fails()) {
              return response()->json(['error'=>'Te lutem dergoji te dhenat e duhura'], 400);
         }
-        $emri = Str::title($request->input('emri'));
-        $insertQytetaret = Qytetaret::insert(['emri'=>$emri]);
-
-        $mbiemri = Str::title($request->input('mbiemri'));
-        $insertQytetaret = Qytetaret::insert(['mbiemri'=>$mbiemri]);
-
-        return response()->json($insertQytetaret);
+       
 
         $qytetaret = Qytetaret::create($request->only([
             'emri',
