@@ -16,8 +16,8 @@ Route::post('/qytetet', [QytetetController::class,'store']);
 Route::put('/qytetet/{id}', [QytetetController::class,'update']);
 Route::delete('/qytetet/{id}', [QytetetController::class,'delete']);
 
-Route::get('/qytetet', [QytetaretController::class,'index']);
-Route::get('/qytetet/{id}', [QytetaretController::class,'show']);
+Route::get('/qytetaret', [QytetaretController::class,'index']);
+Route::get('/qytetaret/{id}', [QytetaretController::class,'show']);
 Route::post('qytetaret', [QytetaretController::class, 'store']);
 Route::put('qytetaret/{id}', [QytetaretController::class, 'update']);
-Route::delete('/qytetet/{id}', [QytetaretController::class,'delete']);
+Route::delete('/qytetaret/{id}', [QytetaretController::class,'delete']);

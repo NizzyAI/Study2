@@ -11,4 +11,6 @@ class Qytetet extends Model
     ];
 
     protected $table='qytetet';
+
+    public $timestamps = false;
 }
