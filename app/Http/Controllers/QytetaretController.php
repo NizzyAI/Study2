@@ -42,7 +42,7 @@ class QytetaretController extends Controller
             'qyteti_id'
         ]));
 
-        return response()->json(['message' => 'Qytetaret u shtua me sukses','data' => $qytetaret
+        return response()->json(['message' => 'Qytetari u shtua me sukses','data' => $qytetaret
         ], 201);
     }
     
