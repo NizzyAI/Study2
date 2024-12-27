@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 use App\Models\Qytetaret;
 use Illuminate\Validation\Rule;
 
@@ -22,8 +21,8 @@ class QytetaretController extends Controller
     public function store(Request $request)
     {
         $request->merge([
-            'emri' => ucfirst(strtolower($request->emri)),
-            'mbiemri' => ucfirst(strtolower($request->mbiemri)),
+            'emri' => ucfirst($request->emri),
+            'mbiemri' => ucfirst($request->mbiemri),
         ]);
         
         $validated = Validator::make($request->all(), [
@@ -65,7 +64,8 @@ class QytetaretController extends Controller
 
         if ($validated->fails()) {
             return response()->json(['error'=>'Te lutem dergoji parametrat e duhura'], 400); 
-      
+        }
+
         $qytetaret->update($request->only([
             'emri',
             'mbiemri',
@@ -78,9 +78,10 @@ class QytetaretController extends Controller
             'message' => 'Qytetari eshte perditesuar me sukses',
             'data' => $qytetaret], 200);
         } 
-    }
-    public function delete($id){
-        $qytetaret = Qytetaret::findOrfail($id);
+    
+    public function delete($id)
+    {
+        $qytetaret = Qytetaret::findOrFail($id);
         $qytetaret->delete();
         return response()->json([
             'message' => 'Qytetari eshte fshire me sukses',
