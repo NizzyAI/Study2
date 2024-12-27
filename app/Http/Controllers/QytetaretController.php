@@ -53,6 +53,12 @@ class QytetaretController extends Controller
     public function update(Request $request, $id)
     {
         $qytetaret = Qytetaret::findOrFail($id);
+        
+        $request->merge([
+            'emri' => ucfirst($request->emri),
+            'mbiemri' => ucfirst($request->mbiemri),
+        ]);
+        
 
         $validated = Validator::make($request->all(), [
             'emri' => 'sometimes|required|string|max:255',
