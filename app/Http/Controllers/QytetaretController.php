@@ -21,6 +21,11 @@ class QytetaretController extends Controller
     }
     public function store(Request $request)
     {
+        $request->merge([
+            'emri' => ucfirst(strtolower($request->emri)),
+            'mbiemri' => ucfirst(strtolower($request->mbiemri)),
+        ]);
+        
         $validated = Validator::make($request->all(), [
             'emri' => 'required|string|max:255',
             'mbiemri' => 'required|string|max:255',
@@ -33,7 +38,7 @@ class QytetaretController extends Controller
              return response()->json(['error'=>'Te lutem dergoji te dhenat e duhura'], 400);
         }
        
-
+        
         $qytetaret = Qytetaret::create($request->only([
             'emri',
             'mbiemri',
