@@ -42,8 +42,7 @@ class QytetaretController extends Controller
             'qyteti_id'
         ]));
 
-        return response()->json(['message' => 'Qytetari u shtua me sukses','data' => $qytetaret
-        ], 201);
+        return response()->json(['message' => 'Qytetari u shtua me sukses','data' => $qytetaret], 201);
     }
     
 
@@ -60,7 +59,7 @@ class QytetaretController extends Controller
         ]);
 
         if ($validated->fails()) {
-            return response()->json(['error'=>'Te lutem dergoji parametrat e duhur'], 400); 
+            return response()->json(['error'=>'Te lutem dergoji parametrat e duhura'], 400); 
       
         $qytetaret->update($request->only([
             'emri',
