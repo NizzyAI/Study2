@@ -9,13 +9,13 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-
 Route::get('/qytetet', [QytetetController::class,'index']);
 Route::get('/qytetet/{id}', [QytetetController::class,'show']);
-Route::post('/qytetet', [QytetetController::class,'store']);
-Route::put('/qytetet/{id}', [QytetetController::class,'update']);
-Route::delete('/qytetet/{id}', [QytetetController::class,'delete']);
-
+Route::middleware(['validate.req'])->group(function () {
+    Route::post('/qytetet', [QytetetController::class, 'store']);
+    Route::put('/qytetet/{id}', [QytetetController::class, 'update']);
+    Route::delete('/qytetet/{id}', [QytetetController::class, 'delete']);
+});
 Route::get('/qytetaret', [QytetaretController::class,'index']);
 Route::get('/qytetaret/{id}', [QytetaretController::class,'show']);
 Route::post('qytetaret', [QytetaretController::class, 'store']);
