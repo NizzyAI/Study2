@@ -28,6 +28,9 @@
                 <th class="border border-gray-300">ID</th>
                 <th class="border border-gray-300">Emri</th>
                 <th class="border border-gray-300">Mbiemri</th>
+                <th class="border border-gray-300">Gjinia</th>
+                <th class="border border-gray=300">Viti i Lindjes</th>
+                <th class="border border-gray=300">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -39,6 +42,11 @@
                         {{ $qytetar->emri }}</a>
                     </td>
                     <td class="border border-gray-300">{{ $qytetar->mbiemri }}</td>
+                    <td class="border border-gray-300">{{ $qytetar->gjinia }}</td>
+                    <td class="border border-gray-300">{{ $qytetar->viti_i_lindjes }}</td>
+                    <td>
+                         <a  href="{{ url('/qytetaret/' . $qytetar->id . '/edit') }}">Edit</a>
+                    <td>     
                 </tr>
             @endforeach
         </tbody>
